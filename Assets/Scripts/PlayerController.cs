@@ -3,18 +3,32 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpForce = 5f;
+    private int jumpCount = 1;
     
+    private Rigidbody2D rb;
+    
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     
     // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
         
-        Vector3 currentPosition = transform.position;
+        rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
         
-        Vector3 newPosition = currentPosition + new Vector3(horizontal, 0f, 0f) * (moveSpeed * Time.deltaTime);
-        
-        transform.position = newPosition;
-        
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 }
