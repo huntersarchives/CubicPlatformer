@@ -4,7 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    private int jumpCount = 1;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
     
     private Rigidbody2D rb;
     
@@ -27,7 +28,11 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void Jump()
+    private void IsGrounded()
+    {
+        return Physics2D.OverlapCircle()
+    }
+    private void Jump()
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
