@@ -7,12 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
     
     // Update is called once per frame
     void Update()
@@ -30,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void IsGrounded()
     {
-        return Physics2D.OverlapCircle();
+        Debug.Log("help");
     }
     private void Jump()
     {
