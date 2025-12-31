@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void IsGrounded()
     {
-        return Physics2D.OverlapCircle()
+        return Physics2D.OverlapCircle();
     }
     private void Jump()
     {
