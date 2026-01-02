@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3624627985930911670}
+  - {fileID: 5701509447542701176}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6476972852590260172
@@ -61,11 +61,12 @@ Transform:
   m_GameObject: {fileID: 6476972852590260172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3624627985930911670}
+  m_Children:
+  - {fileID: 3624627985930911670}
+  m_Father: {fileID: 5195763758390914153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4025820217203641552
 SpriteRenderer:
@@ -187,7 +188,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 55c902d915d604e1abae3919a5be1e61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -197,7 +198,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &8074513950984650735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,11 +215,12 @@ MonoBehaviour:
   jumpForce: 5
   rb: {fileID: 4148216278472030273}
   movement: {x: 0, y: 0}
-  boxSize: {x: 0.75, y: 0.37}
+  boxSize: {x: 1.19, y: 0.37}
   castDistance: 0.28
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  extraJump: 1
 --- !u!1 &8873213859276181446
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,9 +252,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5701509447542701176}
-  m_Father: {fileID: 5195763758390914153}
+  m_Children: []
+  m_Father: {fileID: 5701509447542701176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &2087744223780110569
 Camera:
