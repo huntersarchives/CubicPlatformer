@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.Set(InputManager.movement.x);
+        movement.Set(InputManager.movement.x, InputManager.movement.y);
 
 
         if (InputManager.jump)
