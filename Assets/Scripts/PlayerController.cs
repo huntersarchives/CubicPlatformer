@@ -2,28 +2,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float jumpForce = 500f;
+
+    public Vector2 movement;
     
-    public Rigidbody2D rb;
-    
+    [SerializeField] private Rigidbody2D rb;
     
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        
-        rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
+        movement.Set(InputManager.movement.x);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (InputManager.jump)
         {
             Jump();
+            Debug.Log("jump");
         }
         
     }
 
+    void FixedUpdate()
+    {
+        rb.linearVelocity = movement * moveSpeed;
+    }
     private void IsGrounded()
     {
         Debug.Log("help");
