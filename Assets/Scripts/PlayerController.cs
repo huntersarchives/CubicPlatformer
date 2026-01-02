@@ -32,10 +32,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
         {
+            Debug.Log("On ground");
             return true;
+            
         }
         else
         {
+            Debug.Log("not on ground");
             return false;
         }
     }

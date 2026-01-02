@@ -250,6 +250,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d81c214b-b0ad-4e6f-b9c5-88d88888b0ff
     m_ActionName: 'Player/Move[/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4dabeb28-ecaa-4289-a7fa-50631c5117be
+    m_ActionName: 'Player/Jump[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -347,13 +351,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1623103922975172655, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
+      propertyPath: boxSize.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623103922975172655, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 4148216278472030273, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4148216278472030273, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148216278472030273, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
       propertyPath: m_GravityScale
-      value: 5
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148216278472030273, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5195763758390914153, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
       propertyPath: m_LocalPosition.x
