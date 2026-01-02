@@ -5,10 +5,11 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 500f;
-
-    public Vector2 movement;
-    
     [SerializeField] private Rigidbody2D rb;
+    public Vector2 movement;
+    public Vector2 boxSize;
+    public float castDistance;
+    public LayerMask groundLayer;
     
     // Update is called once per frame
     void Update()
@@ -16,24 +17,38 @@ public class PlayerController : MonoBehaviour
         movement.Set(InputManager.movement.x, InputManager.movement.y);
 
 
-        if (InputManager.jump)
+        if (InputManager.jump && IsGrounded())
         {
             Jump();
-            Debug.Log("jump");
         }
         
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement * moveSpeed;
+        rb.linearVelocity = new  Vector2(movement.x * moveSpeed, rb.linearVelocity.y);
     }
-    private void IsGrounded()
+    private bool IsGrounded()
     {
-        Debug.Log("help");
+        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position-transform.up * castDistance, boxSize);
     }
     private void Jump()
     {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
+    
+    
+    
 }

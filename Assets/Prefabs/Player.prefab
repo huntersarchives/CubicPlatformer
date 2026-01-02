@@ -47,11 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   moveSpeed: 5
   jumpForce: 5
-  groundCheck: {fileID: 0}
+  rb: {fileID: 4148216278472030273}
+  movement: {x: 0, y: 0}
+  boxSize: {x: 0.75, y: 0.37}
+  castDistance: 0.74
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  rb: {fileID: 4148216278472030273}
 --- !u!1 &6476972852590260172
 GameObject:
   m_ObjectHideFlags: 0
