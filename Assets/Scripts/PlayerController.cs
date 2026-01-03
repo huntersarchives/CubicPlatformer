@@ -4,14 +4,16 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 500f;
+    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int extraJump = 1;
+
     public Vector2 movement;
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
-    private float coyoteTime = 0.2f;
+    private float coyoteTime = 0.25f;
+    private float coyoteTimeCounter;
     
     
     // Update is called once per frame
@@ -20,8 +22,10 @@ public class PlayerController : MonoBehaviour
         
         // set movement fomr input manager
         movement.Set(InputManager.movement.x, InputManager.movement.y);
-
-        JumpLogic();
+        if (InputManager.jump)
+        {
+            JumpLogic();
+        }
     }
 
     void FixedUpdate()
@@ -52,13 +56,19 @@ public class PlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
+            coyoteTimeCounter = coyoteTime;
             extraJump = 1;
+        } 
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (InputManager.jump && extraJump > 0) 
+        if (coyoteTimeCounter > 0 && extraJump > 0)
         {
             extraJump--;
             Jump();
+
         }
     }
     private void Jump()
