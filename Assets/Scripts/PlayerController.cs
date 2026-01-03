@@ -22,10 +22,7 @@ public class PlayerController : MonoBehaviour
         
         // set movement fomr input manager
         movement.Set(InputManager.movement.x, InputManager.movement.y);
-        if (InputManager.jump)
-        {
-            JumpLogic();
-        }
+        JumpLogic();
     }
 
     void FixedUpdate()
@@ -64,11 +61,18 @@ public class PlayerController : MonoBehaviour
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (coyoteTimeCounter > 0 && extraJump > 0)
+        if (InputManager.jump)
         {
-            extraJump--;
-            Jump();
-
+            if (coyoteTimeCounter > 0)
+            {
+                Jump();
+                coyoteTimeCounter = 0;
+            }
+            else if (extraJump > 0)
+            {
+                Jump();
+                extraJump--;
+            }
         }
     }
     private void Jump()
