@@ -20,32 +20,34 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
-        // set movement fomr input manager
+        // set movement from input manager
         movement.Set(InputManager.movement.x, InputManager.movement.y);
         JumpLogic();
     }
 
     void FixedUpdate()
     {
+        //horizontal movement
         rb.linearVelocity = new  Vector2(movement.x * moveSpeed, rb.linearVelocity.y);
     }
     private bool IsGrounded()
     {
         if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
         {
-            Debug.Log("On ground");
+            //is on ground
             return true;
             
         }
         else
         {
-            Debug.Log("not on ground");
+            // Not on ground
             return false;
         }
     }
 
     private void OnDrawGizmos()
     {
+        //draws box to check for ground check area
         Gizmos.DrawWireCube(transform.position-transform.up * castDistance, boxSize);
     }
 
@@ -53,11 +55,14 @@ public class PlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
+
+            // resets for coyotetime and extrajump
             coyoteTimeCounter = coyoteTime;
             extraJump = 1;
         } 
         else
         {
+            //starts coyote timer when leaves ground
             coyoteTimeCounter -= Time.deltaTime;
         }
 
@@ -65,11 +70,13 @@ public class PlayerController : MonoBehaviour
         {
             if (coyoteTimeCounter > 0)
             {
+                // Coyote time logic
                 Jump();
                 coyoteTimeCounter = 0;
             }
             else if (extraJump > 0)
             {
+                //extra jump logic
                 Jump();
                 extraJump--;
             }
@@ -77,6 +84,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump()
     {
+        //jump logic
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
     
