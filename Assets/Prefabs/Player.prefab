@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5195763758390914153}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8074513950984650735}
   m_Layer: 0
   m_Name: Sprite-0001_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +187,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 6200000, guid: 55c902d915d604e1abae3919a5be1e61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -214,13 +214,13 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   rb: {fileID: 4148216278472030273}
+  extraJump: 1
   movement: {x: 0, y: 0}
-  boxSize: {x: 1.19, y: 0.37}
-  castDistance: 0.28
+  boxSize: {x: 0.7, y: 0.1}
+  castDistance: 0.07
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  extraJump: 1
 --- !u!1 &8873213859276181446
 GameObject:
   m_ObjectHideFlags: 0

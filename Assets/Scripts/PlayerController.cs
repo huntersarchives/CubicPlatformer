@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
-
             // resets for coyotetime and extrajump
             coyoteTimeCounter = coyoteTime;
             extraJump = 1;
