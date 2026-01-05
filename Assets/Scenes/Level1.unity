@@ -1672,14 +1672,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8074513950984650735, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
-      propertyPath: boxSize.x
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 8074513950984650735, guid: b50fb518606695c418bb434aa35ec8d9, type: 3}
-      propertyPath: castDistance
-      value: 0.34
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

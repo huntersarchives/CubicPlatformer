@@ -10,7 +10,6 @@ public class LevelChange : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            Debug.Log("Entered");
             playerInside = true;
         }
         
@@ -20,7 +19,6 @@ public class LevelChange : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Left");
             playerInside = false;
         }
     }

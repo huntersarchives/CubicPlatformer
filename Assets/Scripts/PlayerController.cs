@@ -1,18 +1,19 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private int extraJump = 1;
+    [SerializeField] public Rigidbody2D rb;
+    [SerializeField] public int extraJump;
 
+    public int extraJumpCount = 1;
     public Vector2 movement;
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
-    private float coyoteTime = 0.25f;
+    private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
     
     
@@ -32,17 +33,7 @@ public class PlayerController : MonoBehaviour
     }
     private bool IsGrounded()
     {
-        if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
-        {
-            //is on ground
-            return true;
-            
-        }
-        else
-        {
-            // Not on ground
-            return false;
-        }
+        return Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer);
     }
 
     private void OnDrawGizmos()
@@ -57,7 +48,7 @@ public class PlayerController : MonoBehaviour
         {
             // resets for coyotetime and extrajump
             coyoteTimeCounter = coyoteTime;
-            extraJump = 1;
+            extraJump = extraJumpCount;
         } 
         else
         {

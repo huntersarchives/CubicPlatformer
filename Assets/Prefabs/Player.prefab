@@ -215,9 +215,10 @@ MonoBehaviour:
   jumpForce: 5
   rb: {fileID: 4148216278472030273}
   extraJump: 1
+  extraJumpCount: 1
   movement: {x: 0, y: 0}
-  boxSize: {x: 0.7, y: 0.1}
-  castDistance: 0.07
+  boxSize: {x: 0.59, y: 0.22}
+  castDistance: 0.4
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
