@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] public int extraJump;
 
+    public int bonusJump = 0;
     public int extraJumpCount = 1;
     public Vector2 movement;
     public Vector2 boxSize;
@@ -70,6 +71,11 @@ public class PlayerController : MonoBehaviour
                 //extra jump logic
                 Jump();
                 extraJump--;
+            }
+            else if (bonusJump > 0)
+            {
+                Jump();
+                bonusJump--;
             }
         }
     }
