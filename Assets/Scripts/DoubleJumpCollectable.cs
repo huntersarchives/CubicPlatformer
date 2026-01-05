@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class DoubleJumpCollectable : MonoBehaviour
 {
-    public extraJump extraJump;
+    public int bonusJump = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Entered");
+            PlayerController player = collision.GetComponent<PlayerController>();
+            player.extraJump += bonusJump;
+            Destroy(gameObject);
         }
     }
 }

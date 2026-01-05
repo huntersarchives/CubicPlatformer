@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         // set movement from input manager
         movement.Set(InputManager.movement.x, InputManager.movement.y);
         JumpLogic();
+        Debug.Log(extraJump);
     }
 
     void FixedUpdate()
