@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6007857137893288414, guid: 6312d9633e2210f40bc29a1dbfb3968e, type: 3}
+  m_Sprite: {fileID: -6587199473179042072, guid: 2c345e5e4ea447e42bf4576b03ca6c6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -215,6 +215,7 @@ MonoBehaviour:
   jumpForce: 5
   rb: {fileID: 4148216278472030273}
   extraJump: 1
+  bonusJump: 0
   extraJumpCount: 1
   movement: {x: 0, y: 0}
   boxSize: {x: 0.59, y: 0.22}
