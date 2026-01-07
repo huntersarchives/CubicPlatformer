@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
             // resets for coyotetime and extrajump
             coyoteTimeCounter = coyoteTime;
             extraJump = extraJumpCount;
+            bonusJump = 0;
         } 
         else
         {
